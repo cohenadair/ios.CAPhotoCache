@@ -15,7 +15,7 @@ In progress.
 
 ## License
 
-The source code to CAPhotoCache is available under the GNU General Public License. See the [LICENSE](https://raw.githubusercontent.com/cohenadair/ios.photo-cache/master/LICENSE) file for more information.
+The source code to CAPhotoCache is available under the MIT License. See the [LICENSE](https://raw.githubusercontent.com/cohenadair/ios.photo-cache/master/LICENSE) file for more information.
 
 
 ## Contact
