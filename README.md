@@ -8,14 +8,14 @@ In progress.
 
 ## Running the demo
 * Make sure [Cocoapods](https://guides.cocoapods.org/using/getting-started.html) is installed on your machine
-* Run `pod install` on the `ios.photo-cache/CAPhotoCacheDemo` directory
+* Run `pod install` on the `ios.CAPhotoCache/CAPhotoCacheDemo` directory
 * Open `CAPhotoCacheDemo.xcworkspace`
 * Run
 
 
 ## License
 
-The source code to CAPhotoCache is available under the MIT License. See the [LICENSE](https://raw.githubusercontent.com/cohenadair/ios.photo-cache/master/LICENSE) file for more information.
+The source code to CAPhotoCache is available under the MIT License. See the [LICENSE](https://raw.githubusercontent.com/cohenadair/ios.CAPhotoCache/master/LICENSE) file for more information.
 
 
 ## Contact

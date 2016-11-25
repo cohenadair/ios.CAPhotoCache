@@ -1,9 +1,10 @@
-platform :ios, '8.3'
+platform :ios, '8.4'
 
 target 'CAPhotoCacheDemo' do
   use_frameworks!
 
   # Pods for CAPhotoCacheDemo
+  pod 'CAPhotoCache', :path => '../'
   pod 'SSZipArchive'
 
   target 'CAPhotoCacheDemoTests' do

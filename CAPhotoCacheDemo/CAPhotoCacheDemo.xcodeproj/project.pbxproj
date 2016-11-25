@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0D2702571DE7C6C900F4B766 /* libCAPhotoCache.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D2702541DE7C67500F4B766 /* libCAPhotoCache.a */; };
 		0D27025E1DE7C7D400F4B766 /* CACollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D27025B1DE7C7D400F4B766 /* CACollectionViewController.m */; };
 		0D27025F1DE7C7D400F4B766 /* CATableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D27025D1DE7C7D400F4B766 /* CATableViewController.m */; };
 		0D2702621DE7C7DC00F4B766 /* CACacheControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D2702611DE7C7DC00F4B766 /* CACacheControlView.m */; };
@@ -22,20 +21,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		0D2702531DE7C67500F4B766 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0D27024F1DE7C67500F4B766 /* CAPhotoCache.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 0D27023D1DE7C13000F4B766;
-			remoteInfo = CAPhotoCache;
-		};
-		0D2702551DE7C6AA00F4B766 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0D27024F1DE7C67500F4B766 /* CAPhotoCache.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 0D27023C1DE7C13000F4B766;
-			remoteInfo = CAPhotoCache;
-		};
 		0DFA0E7A1DE6664E00B616F4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0DFA0E551DE6664E00B616F4 /* Project object */;
@@ -46,7 +31,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0D27024F1DE7C67500F4B766 /* CAPhotoCache.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CAPhotoCache.xcodeproj; path = ../../CAPhotoCache/CAPhotoCache.xcodeproj; sourceTree = "<group>"; };
 		0D27025A1DE7C7D400F4B766 /* CACollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CACollectionViewController.h; path = ViewControllers/CACollectionViewController.h; sourceTree = "<group>"; };
 		0D27025B1DE7C7D400F4B766 /* CACollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CACollectionViewController.m; path = ViewControllers/CACollectionViewController.m; sourceTree = "<group>"; };
 		0D27025C1DE7C7D400F4B766 /* CATableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CATableViewController.h; path = ViewControllers/CATableViewController.h; sourceTree = "<group>"; };
@@ -79,7 +63,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0D2702571DE7C6C900F4B766 /* libCAPhotoCache.a in Frameworks */,
 				B0FCD6EA9225B965C582553B /* Pods_CAPhotoCacheDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -95,14 +78,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0D2702501DE7C67500F4B766 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				0D2702541DE7C67500F4B766 /* libCAPhotoCache.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		0D2702581DE7C77000F4B766 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,7 +121,6 @@
 		0DFA0E5F1DE6664E00B616F4 /* CAPhotoCacheDemo */ = {
 			isa = PBXGroup;
 			children = (
-				0D27024F1DE7C67500F4B766 /* CAPhotoCache.xcodeproj */,
 				0DFA0E6F1DE6664E00B616F4 /* Assets.xcassets */,
 				0DFA0E631DE6664E00B616F4 /* CAAppDelegate.h */,
 				0DFA0E641DE6664E00B616F4 /* CAAppDelegate.m */,
@@ -216,7 +190,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				0D2702561DE7C6AA00F4B766 /* PBXTargetDependency */,
 			);
 			name = CAPhotoCacheDemo;
 			productName = CAPhotoCacheDemo;
@@ -277,12 +250,6 @@
 			mainGroup = 0DFA0E541DE6664E00B616F4;
 			productRefGroup = 0DFA0E5E1DE6664E00B616F4 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 0D2702501DE7C67500F4B766 /* Products */;
-					ProjectRef = 0D27024F1DE7C67500F4B766 /* CAPhotoCache.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				0DFA0E5C1DE6664E00B616F4 /* CAPhotoCacheDemo */,
@@ -290,16 +257,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		0D2702541DE7C67500F4B766 /* libCAPhotoCache.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libCAPhotoCache.a;
-			remoteRef = 0D2702531DE7C67500F4B766 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		0DFA0E5B1DE6664E00B616F4 /* Resources */ = {
@@ -333,7 +290,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		9DC523896F9B852562C41FC2 /* [CP] Check Pods Manifest.lock */ = {
@@ -348,7 +305,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		AEC326B83435495427A85E2E /* [CP] Copy Pods Resources */ = {
@@ -438,11 +395,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		0D2702561DE7C6AA00F4B766 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = CAPhotoCache;
-			targetProxy = 0D2702551DE7C6AA00F4B766 /* PBXContainerItemProxy */;
-		};
 		0DFA0E7B1DE6664E00B616F4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 0DFA0E5C1DE6664E00B616F4 /* CAPhotoCacheDemo */;
@@ -503,7 +455,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -546,7 +498,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -562,6 +514,7 @@
 				DEVELOPMENT_TEAM = RQ74DU9PML;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/CAPhotoCacheDemo/SupportingFiles/CAPhotoCacheDemo-Prefix.pch";
 				INFOPLIST_FILE = CAPhotoCacheDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cohenadair.CAPhotoCacheDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -576,6 +529,7 @@
 				DEVELOPMENT_TEAM = RQ74DU9PML;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/CAPhotoCacheDemo/SupportingFiles/CAPhotoCacheDemo-Prefix.pch";
 				INFOPLIST_FILE = CAPhotoCacheDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cohenadair.CAPhotoCacheDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
