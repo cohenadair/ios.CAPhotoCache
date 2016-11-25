@@ -1,0 +1,646 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0D2702571DE7C6C900F4B766 /* libCAPhotoCache.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D2702541DE7C67500F4B766 /* libCAPhotoCache.a */; };
+		0D27025E1DE7C7D400F4B766 /* CACollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D27025B1DE7C7D400F4B766 /* CACollectionViewController.m */; };
+		0D27025F1DE7C7D400F4B766 /* CATableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D27025D1DE7C7D400F4B766 /* CATableViewController.m */; };
+		0D2702621DE7C7DC00F4B766 /* CACacheControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D2702611DE7C7DC00F4B766 /* CACacheControlView.m */; };
+		0D2702651DE7C85C00F4B766 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D2702641DE7C85C00F4B766 /* main.m */; };
+		0DFA0E651DE6664E00B616F4 /* CAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DFA0E641DE6664E00B616F4 /* CAAppDelegate.m */; };
+		0DFA0E6E1DE6664E00B616F4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DFA0E6C1DE6664E00B616F4 /* Main.storyboard */; };
+		0DFA0E701DE6664E00B616F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DFA0E6F1DE6664E00B616F4 /* Assets.xcassets */; };
+		0DFA0E7E1DE6664E00B616F4 /* CAPhotoCacheDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DFA0E7D1DE6664E00B616F4 /* CAPhotoCacheDemoTests.m */; };
+		0DFA0E901DE66AD600B616F4 /* CAPhotoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DFA0E8F1DE66AD600B616F4 /* CAPhotoManager.m */; };
+		68D48A30B37A1A3B01DF630A /* Pods_CAPhotoCacheDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74CE0254C363DC2899F2756C /* Pods_CAPhotoCacheDemoTests.framework */; };
+		B0FCD6EA9225B965C582553B /* Pods_CAPhotoCacheDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 423A397B8625A76A3A32B18A /* Pods_CAPhotoCacheDemo.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0D2702531DE7C67500F4B766 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0D27024F1DE7C67500F4B766 /* CAPhotoCache.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0D27023D1DE7C13000F4B766;
+			remoteInfo = CAPhotoCache;
+		};
+		0D2702551DE7C6AA00F4B766 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0D27024F1DE7C67500F4B766 /* CAPhotoCache.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 0D27023C1DE7C13000F4B766;
+			remoteInfo = CAPhotoCache;
+		};
+		0DFA0E7A1DE6664E00B616F4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0DFA0E551DE6664E00B616F4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0DFA0E5C1DE6664E00B616F4;
+			remoteInfo = CAPhotoCacheDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0D27024F1DE7C67500F4B766 /* CAPhotoCache.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CAPhotoCache.xcodeproj; path = ../../CAPhotoCache/CAPhotoCache.xcodeproj; sourceTree = "<group>"; };
+		0D27025A1DE7C7D400F4B766 /* CACollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CACollectionViewController.h; path = ViewControllers/CACollectionViewController.h; sourceTree = "<group>"; };
+		0D27025B1DE7C7D400F4B766 /* CACollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CACollectionViewController.m; path = ViewControllers/CACollectionViewController.m; sourceTree = "<group>"; };
+		0D27025C1DE7C7D400F4B766 /* CATableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CATableViewController.h; path = ViewControllers/CATableViewController.h; sourceTree = "<group>"; };
+		0D27025D1DE7C7D400F4B766 /* CATableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CATableViewController.m; path = ViewControllers/CATableViewController.m; sourceTree = "<group>"; };
+		0D2702601DE7C7DC00F4B766 /* CACacheControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CACacheControlView.h; path = Views/CACacheControlView.h; sourceTree = "<group>"; };
+		0D2702611DE7C7DC00F4B766 /* CACacheControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CACacheControlView.m; path = Views/CACacheControlView.m; sourceTree = "<group>"; };
+		0D2702631DE7C85C00F4B766 /* CAPhotoCacheDemo-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CAPhotoCacheDemo-Prefix.pch"; path = "SupportingFiles/CAPhotoCacheDemo-Prefix.pch"; sourceTree = "<group>"; };
+		0D2702641DE7C85C00F4B766 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = SupportingFiles/main.m; sourceTree = "<group>"; };
+		0DFA0E5D1DE6664E00B616F4 /* CAPhotoCacheDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CAPhotoCacheDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0DFA0E631DE6664E00B616F4 /* CAAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CAAppDelegate.h; sourceTree = "<group>"; };
+		0DFA0E641DE6664E00B616F4 /* CAAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CAAppDelegate.m; sourceTree = "<group>"; };
+		0DFA0E6D1DE6664E00B616F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		0DFA0E6F1DE6664E00B616F4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0DFA0E741DE6664E00B616F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0DFA0E791DE6664E00B616F4 /* CAPhotoCacheDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CAPhotoCacheDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0DFA0E7D1DE6664E00B616F4 /* CAPhotoCacheDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CAPhotoCacheDemoTests.m; sourceTree = "<group>"; };
+		0DFA0E7F1DE6664E00B616F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0DFA0E8E1DE66AD600B616F4 /* CAPhotoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAPhotoManager.h; sourceTree = "<group>"; };
+		0DFA0E8F1DE66AD600B616F4 /* CAPhotoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAPhotoManager.m; sourceTree = "<group>"; };
+		423A397B8625A76A3A32B18A /* Pods_CAPhotoCacheDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CAPhotoCacheDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		74CE0254C363DC2899F2756C /* Pods_CAPhotoCacheDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CAPhotoCacheDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		97AEDB6E4F1E562077CF0EAF /* Pods-CAPhotoCacheDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CAPhotoCacheDemoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CAPhotoCacheDemoTests/Pods-CAPhotoCacheDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A7F455D30B54413B68ABF785 /* Pods-CAPhotoCacheDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CAPhotoCacheDemoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CAPhotoCacheDemoTests/Pods-CAPhotoCacheDemoTests.release.xcconfig"; sourceTree = "<group>"; };
+		BD025F38B341DBA42D4D0C96 /* Pods-CAPhotoCacheDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CAPhotoCacheDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-CAPhotoCacheDemo/Pods-CAPhotoCacheDemo.release.xcconfig"; sourceTree = "<group>"; };
+		F412F34631EA17894DD35F84 /* Pods-CAPhotoCacheDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CAPhotoCacheDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CAPhotoCacheDemo/Pods-CAPhotoCacheDemo.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0DFA0E5A1DE6664E00B616F4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0D2702571DE7C6C900F4B766 /* libCAPhotoCache.a in Frameworks */,
+				B0FCD6EA9225B965C582553B /* Pods_CAPhotoCacheDemo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0DFA0E761DE6664E00B616F4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68D48A30B37A1A3B01DF630A /* Pods_CAPhotoCacheDemoTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0D2702501DE7C67500F4B766 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0D2702541DE7C67500F4B766 /* libCAPhotoCache.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0D2702581DE7C77000F4B766 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0D2702601DE7C7DC00F4B766 /* CACacheControlView.h */,
+				0D2702611DE7C7DC00F4B766 /* CACacheControlView.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		0D2702591DE7C77400F4B766 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				0D27025A1DE7C7D400F4B766 /* CACollectionViewController.h */,
+				0D27025B1DE7C7D400F4B766 /* CACollectionViewController.m */,
+				0D27025C1DE7C7D400F4B766 /* CATableViewController.h */,
+				0D27025D1DE7C7D400F4B766 /* CATableViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		0DFA0E541DE6664E00B616F4 = {
+			isa = PBXGroup;
+			children = (
+				0DFA0E5F1DE6664E00B616F4 /* CAPhotoCacheDemo */,
+				0DFA0E7C1DE6664E00B616F4 /* CAPhotoCacheDemoTests */,
+				0DFA0E5E1DE6664E00B616F4 /* Products */,
+				8D5922D4C3A462D71AE0762B /* Pods */,
+				4FD3671E496AE4AF12650A7D /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		0DFA0E5E1DE6664E00B616F4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0DFA0E5D1DE6664E00B616F4 /* CAPhotoCacheDemo.app */,
+				0DFA0E791DE6664E00B616F4 /* CAPhotoCacheDemoTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0DFA0E5F1DE6664E00B616F4 /* CAPhotoCacheDemo */ = {
+			isa = PBXGroup;
+			children = (
+				0D27024F1DE7C67500F4B766 /* CAPhotoCache.xcodeproj */,
+				0DFA0E6F1DE6664E00B616F4 /* Assets.xcassets */,
+				0DFA0E631DE6664E00B616F4 /* CAAppDelegate.h */,
+				0DFA0E641DE6664E00B616F4 /* CAAppDelegate.m */,
+				0DFA0E8E1DE66AD600B616F4 /* CAPhotoManager.h */,
+				0DFA0E8F1DE66AD600B616F4 /* CAPhotoManager.m */,
+				0DFA0E741DE6664E00B616F4 /* Info.plist */,
+				0DFA0E6C1DE6664E00B616F4 /* Main.storyboard */,
+				0DFA0E601DE6664E00B616F4 /* SupportingFiles */,
+				0D2702591DE7C77400F4B766 /* ViewControllers */,
+				0D2702581DE7C77000F4B766 /* Views */,
+			);
+			path = CAPhotoCacheDemo;
+			sourceTree = "<group>";
+		};
+		0DFA0E601DE6664E00B616F4 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				0D2702631DE7C85C00F4B766 /* CAPhotoCacheDemo-Prefix.pch */,
+				0D2702641DE7C85C00F4B766 /* main.m */,
+			);
+			name = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		0DFA0E7C1DE6664E00B616F4 /* CAPhotoCacheDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				0DFA0E7D1DE6664E00B616F4 /* CAPhotoCacheDemoTests.m */,
+				0DFA0E7F1DE6664E00B616F4 /* Info.plist */,
+			);
+			path = CAPhotoCacheDemoTests;
+			sourceTree = "<group>";
+		};
+		4FD3671E496AE4AF12650A7D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				423A397B8625A76A3A32B18A /* Pods_CAPhotoCacheDemo.framework */,
+				74CE0254C363DC2899F2756C /* Pods_CAPhotoCacheDemoTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8D5922D4C3A462D71AE0762B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F412F34631EA17894DD35F84 /* Pods-CAPhotoCacheDemo.debug.xcconfig */,
+				BD025F38B341DBA42D4D0C96 /* Pods-CAPhotoCacheDemo.release.xcconfig */,
+				97AEDB6E4F1E562077CF0EAF /* Pods-CAPhotoCacheDemoTests.debug.xcconfig */,
+				A7F455D30B54413B68ABF785 /* Pods-CAPhotoCacheDemoTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0DFA0E5C1DE6664E00B616F4 /* CAPhotoCacheDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0DFA0E821DE6664E00B616F4 /* Build configuration list for PBXNativeTarget "CAPhotoCacheDemo" */;
+			buildPhases = (
+				608EAFF495DA1E35EA907434 /* [CP] Check Pods Manifest.lock */,
+				0DFA0E591DE6664E00B616F4 /* Sources */,
+				0DFA0E5A1DE6664E00B616F4 /* Frameworks */,
+				0DFA0E5B1DE6664E00B616F4 /* Resources */,
+				B59005244D23999359714E68 /* [CP] Embed Pods Frameworks */,
+				AEC326B83435495427A85E2E /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0D2702561DE7C6AA00F4B766 /* PBXTargetDependency */,
+			);
+			name = CAPhotoCacheDemo;
+			productName = CAPhotoCacheDemo;
+			productReference = 0DFA0E5D1DE6664E00B616F4 /* CAPhotoCacheDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		0DFA0E781DE6664E00B616F4 /* CAPhotoCacheDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0DFA0E851DE6664E00B616F4 /* Build configuration list for PBXNativeTarget "CAPhotoCacheDemoTests" */;
+			buildPhases = (
+				9DC523896F9B852562C41FC2 /* [CP] Check Pods Manifest.lock */,
+				0DFA0E751DE6664E00B616F4 /* Sources */,
+				0DFA0E761DE6664E00B616F4 /* Frameworks */,
+				0DFA0E771DE6664E00B616F4 /* Resources */,
+				CD78D34997D7476CB06F6FB0 /* [CP] Embed Pods Frameworks */,
+				F93ADC6B8F6AE3E63C4B700E /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0DFA0E7B1DE6664E00B616F4 /* PBXTargetDependency */,
+			);
+			name = CAPhotoCacheDemoTests;
+			productName = CAPhotoCacheDemoTests;
+			productReference = 0DFA0E791DE6664E00B616F4 /* CAPhotoCacheDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0DFA0E551DE6664E00B616F4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = "Cohen Adair";
+				TargetAttributes = {
+					0DFA0E5C1DE6664E00B616F4 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = RQ74DU9PML;
+						ProvisioningStyle = Automatic;
+					};
+					0DFA0E781DE6664E00B616F4 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = RQ74DU9PML;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 0DFA0E5C1DE6664E00B616F4;
+					};
+				};
+			};
+			buildConfigurationList = 0DFA0E581DE6664E00B616F4 /* Build configuration list for PBXProject "CAPhotoCacheDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 0DFA0E541DE6664E00B616F4;
+			productRefGroup = 0DFA0E5E1DE6664E00B616F4 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 0D2702501DE7C67500F4B766 /* Products */;
+					ProjectRef = 0D27024F1DE7C67500F4B766 /* CAPhotoCache.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				0DFA0E5C1DE6664E00B616F4 /* CAPhotoCacheDemo */,
+				0DFA0E781DE6664E00B616F4 /* CAPhotoCacheDemoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		0D2702541DE7C67500F4B766 /* libCAPhotoCache.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libCAPhotoCache.a;
+			remoteRef = 0D2702531DE7C67500F4B766 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0DFA0E5B1DE6664E00B616F4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0DFA0E701DE6664E00B616F4 /* Assets.xcassets in Resources */,
+				0DFA0E6E1DE6664E00B616F4 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0DFA0E771DE6664E00B616F4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		608EAFF495DA1E35EA907434 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9DC523896F9B852562C41FC2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		AEC326B83435495427A85E2E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CAPhotoCacheDemo/Pods-CAPhotoCacheDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B59005244D23999359714E68 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CAPhotoCacheDemo/Pods-CAPhotoCacheDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CD78D34997D7476CB06F6FB0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CAPhotoCacheDemoTests/Pods-CAPhotoCacheDemoTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F93ADC6B8F6AE3E63C4B700E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CAPhotoCacheDemoTests/Pods-CAPhotoCacheDemoTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0DFA0E591DE6664E00B616F4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0DFA0E651DE6664E00B616F4 /* CAAppDelegate.m in Sources */,
+				0D2702621DE7C7DC00F4B766 /* CACacheControlView.m in Sources */,
+				0DFA0E901DE66AD600B616F4 /* CAPhotoManager.m in Sources */,
+				0D27025E1DE7C7D400F4B766 /* CACollectionViewController.m in Sources */,
+				0D2702651DE7C85C00F4B766 /* main.m in Sources */,
+				0D27025F1DE7C7D400F4B766 /* CATableViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0DFA0E751DE6664E00B616F4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0DFA0E7E1DE6664E00B616F4 /* CAPhotoCacheDemoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0D2702561DE7C6AA00F4B766 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CAPhotoCache;
+			targetProxy = 0D2702551DE7C6AA00F4B766 /* PBXContainerItemProxy */;
+		};
+		0DFA0E7B1DE6664E00B616F4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0DFA0E5C1DE6664E00B616F4 /* CAPhotoCacheDemo */;
+			targetProxy = 0DFA0E7A1DE6664E00B616F4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		0DFA0E6C1DE6664E00B616F4 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0DFA0E6D1DE6664E00B616F4 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0DFA0E801DE6664E00B616F4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0DFA0E811DE6664E00B616F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0DFA0E831DE6664E00B616F4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F412F34631EA17894DD35F84 /* Pods-CAPhotoCacheDemo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = RQ74DU9PML;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/CAPhotoCacheDemo/SupportingFiles/CAPhotoCacheDemo-Prefix.pch";
+				INFOPLIST_FILE = CAPhotoCacheDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cohenadair.CAPhotoCacheDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		0DFA0E841DE6664E00B616F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BD025F38B341DBA42D4D0C96 /* Pods-CAPhotoCacheDemo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = RQ74DU9PML;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/CAPhotoCacheDemo/SupportingFiles/CAPhotoCacheDemo-Prefix.pch";
+				INFOPLIST_FILE = CAPhotoCacheDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cohenadair.CAPhotoCacheDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		0DFA0E861DE6664E00B616F4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 97AEDB6E4F1E562077CF0EAF /* Pods-CAPhotoCacheDemoTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = RQ74DU9PML;
+				INFOPLIST_FILE = CAPhotoCacheDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cohenadair.CAPhotoCacheDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CAPhotoCacheDemo.app/CAPhotoCacheDemo";
+			};
+			name = Debug;
+		};
+		0DFA0E871DE6664E00B616F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A7F455D30B54413B68ABF785 /* Pods-CAPhotoCacheDemoTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = RQ74DU9PML;
+				INFOPLIST_FILE = CAPhotoCacheDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cohenadair.CAPhotoCacheDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CAPhotoCacheDemo.app/CAPhotoCacheDemo";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0DFA0E581DE6664E00B616F4 /* Build configuration list for PBXProject "CAPhotoCacheDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0DFA0E801DE6664E00B616F4 /* Debug */,
+				0DFA0E811DE6664E00B616F4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0DFA0E821DE6664E00B616F4 /* Build configuration list for PBXNativeTarget "CAPhotoCacheDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0DFA0E831DE6664E00B616F4 /* Debug */,
+				0DFA0E841DE6664E00B616F4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0DFA0E851DE6664E00B616F4 /* Build configuration list for PBXNativeTarget "CAPhotoCacheDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0DFA0E861DE6664E00B616F4 /* Debug */,
+				0DFA0E871DE6664E00B616F4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0DFA0E551DE6664E00B616F4 /* Project object */;
+}
