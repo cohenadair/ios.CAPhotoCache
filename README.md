@@ -6,11 +6,11 @@ A robust caching system for local photos on iOS.
 In progress.
 
 
-## <a name="setup">Setup
+## Running the demo
 * Make sure [Cocoapods](https://guides.cocoapods.org/using/getting-started.html) is installed on your machine
 * Run `pod install` on the `ios.photo-cache/CAPhotoCacheDemo` directory
 * Open `CAPhotoCacheDemo.xcworkspace`
-* Build project
+* Run
 
 
 ## License
