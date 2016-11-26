@@ -10,7 +10,7 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   CAPhotoCache:
-    :path: ../
+    :path: "../"
 
 SPEC CHECKSUMS:
   CAPhotoCache: 570249a03adbb74bed9cec0aa2a6222d888ad8c7
