@@ -12,10 +12,63 @@
 //  source code.
 //
 
+@protocol CAPhotoManagerChangeListener <NSObject>
+
+@required
+/**
+ * Called when the photo download starts.  There is no guarentee this method will be called on
+ * the main thread.
+ */
+- (void)photoManagerDownloadDidStart;
+
+/**
+ * Called when the photo download progresses.  There is no guarentee this method will be called on
+ * the main thread.
+ * @param percentCompleted The current progress of the download.
+ */
+- (void)photoManagerDownloadDidProgress:(NSInteger)percentCompleted;
+
+/**
+ * Called when the photo download completed.  There is no guarentee this method will be called on
+ * the main thread.
+ * @param msg The string result of the download that should be displayed to the user.
+ */
+- (void)photoManagerDownloadDidComplete:(NSString *)msg;
+
+/**
+ * Called when the photo unzipping starts.  There is no guarentee this method will be called on
+ * the main thread.
+ */
+- (void)photoManagerUnzippingDidStart;
+
+/**
+ * Called when the photo unzipping progresses.  There is no guarentee this method will be called on
+ * the main thread.
+ * @param percentCompleted The current progress of the download.
+ */
+- (void)photoManagerUnzippingDidProgress:(NSInteger)percentCompleted;
+
+/**
+ * Called when the photo unzipping completed.  There is no guarentee this method will be called on
+ * the main thread.
+ * @param msg The string result of the download that should be displayed to the user.
+ */
+- (void)photoManagerUnzippingDidComplete:(NSString *)msg;
+
+@end
+
 @interface CAPhotoManager : NSObject
 
 @property (nonatomic) BOOL cacheEnabled;
 
 + (CAPhotoManager *)sharedPhotoManager;
+
+/**
+ * Will download example photos if there are no photos in the app's /Pictures/ directory.
+ */
+- (void)possiblyDownloadPhotos;
+
+- (void)addChangeListener:(id<CAPhotoManagerChangeListener>)changeListener;
+- (void)removeChangeListener:(id<CAPhotoManagerChangeListener>)changeListener;
 
 @end

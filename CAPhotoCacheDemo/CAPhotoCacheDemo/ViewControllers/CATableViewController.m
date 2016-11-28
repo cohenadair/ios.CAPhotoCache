@@ -13,92 +13,105 @@
 //
 
 #import "CATableViewController.h"
+#import "CAPhotoManager.h"
+#import "CAUtils.h"
 
-@interface CATableViewController ()
+static NSString *const DOWNLOAD_PROGRESS_MESSAGE = @"Downloading photos (%ld%%)";
+static NSString *const UNZIP_PROGRESS_MESSAGE = @"Unzipping photos (%ld%%)";
 
+@interface CATableViewController () <CAPhotoManagerChangeListener>
 @end
 
-@implementation CATableViewController
+@implementation CATableViewController {
+    CAPhotoManager *_photoManager;
+    UIAlertController *_setupProgressAlert;
+}
+
+- (void)dealloc {
+    [_photoManager removeChangeListener:self];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    _setupProgressAlert =
+        [UIAlertController alertControllerWithTitle:nil
+                                            message:nil
+                                     preferredStyle:UIAlertControllerStyleAlert];
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    _photoManager = [CAPhotoManager sharedPhotoManager];
+    [_photoManager addChangeListener:self];
+    [_photoManager possiblyDownloadPhotos];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)setAlertViewDownloadPercent:(NSInteger)percent {
+    _setupProgressAlert.message = [NSString stringWithFormat:DOWNLOAD_PROGRESS_MESSAGE, percent];
 }
 
-#pragma mark - Table view data source
+- (void)setAlertViewUnzipPercent:(NSInteger)percent {
+    _setupProgressAlert.message = [NSString stringWithFormat:UNZIP_PROGRESS_MESSAGE, percent];
+}
+
+- (UIAlertController *)getSetupProgressAlert {
+    return _setupProgressAlert;
+}
+
+#pragma mark - UITableView Data Source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
     return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
     return 0;
 }
 
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
-}
-*/
+#pragma mark - CAPhotoManagerChangeListener
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+- (void)photoManagerDownloadDidStart {
+    __weak typeof(self) weakSelf = self;
+    [CAUtils runBlockInMainThread: ^{
+        [weakSelf setAlertViewDownloadPercent:0];
+        [weakSelf.tabBarController presentViewController:_setupProgressAlert
+                                                animated:NO
+                                              completion:nil];
+    }];
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+- (void)photoManagerDownloadDidProgress:(NSInteger)percentCompleted {
+    __weak typeof(self) weakSelf = self;
+    [CAUtils runBlockInMainThread: ^{
+        [weakSelf setAlertViewDownloadPercent:percentCompleted];
+    }];
 }
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+- (void)photoManagerDownloadDidComplete:(NSString *)msg {
+    __weak typeof(self) weakSelf = self;
+    [CAUtils runBlockInMainThread: ^{
+        weakSelf.getSetupProgressAlert.message = msg;
+    }];
 }
-*/
 
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
+- (void)photoManagerUnzippingDidStart {
+    __weak typeof(self) weakSelf = self;
+    [CAUtils runBlockInMainThread: ^{
+        [weakSelf setAlertViewUnzipPercent:0];
+    }];
 }
-*/
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)photoManagerUnzippingDidProgress:(NSInteger)percentCompleted {
+    __weak typeof(self) weakSelf = self;
+    [CAUtils runBlockInMainThread: ^{
+        [weakSelf setAlertViewUnzipPercent:percentCompleted];
+    }];
 }
-*/
+
+- (void)photoManagerUnzippingDidComplete:(NSString *)msg {
+    __weak typeof(self) weakSelf = self;
+    [CAUtils runBlockInMainThread: ^{
+        weakSelf.getSetupProgressAlert.message = msg;
+        [weakSelf.getSetupProgressAlert dismissViewControllerAnimated:YES completion:nil];
+    }];
+}
 
 @end

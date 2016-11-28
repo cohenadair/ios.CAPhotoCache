@@ -11,6 +11,7 @@
 		0D27025F1DE7C7D400F4B766 /* CATableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D27025D1DE7C7D400F4B766 /* CATableViewController.m */; };
 		0D2702621DE7C7DC00F4B766 /* CACacheControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D2702611DE7C7DC00F4B766 /* CACacheControlView.m */; };
 		0D2702651DE7C85C00F4B766 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D2702641DE7C85C00F4B766 /* main.m */; };
+		0D27026C1DEB4A9400F4B766 /* CAUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D27026B1DEB4A9400F4B766 /* CAUtils.m */; };
 		0DFA0E651DE6664E00B616F4 /* CAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DFA0E641DE6664E00B616F4 /* CAAppDelegate.m */; };
 		0DFA0E6E1DE6664E00B616F4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DFA0E6C1DE6664E00B616F4 /* Main.storyboard */; };
 		0DFA0E701DE6664E00B616F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DFA0E6F1DE6664E00B616F4 /* Assets.xcassets */; };
@@ -39,6 +40,8 @@
 		0D2702611DE7C7DC00F4B766 /* CACacheControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CACacheControlView.m; path = Views/CACacheControlView.m; sourceTree = "<group>"; };
 		0D2702631DE7C85C00F4B766 /* CAPhotoCacheDemo-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CAPhotoCacheDemo-Prefix.pch"; path = "SupportingFiles/CAPhotoCacheDemo-Prefix.pch"; sourceTree = "<group>"; };
 		0D2702641DE7C85C00F4B766 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = SupportingFiles/main.m; sourceTree = "<group>"; };
+		0D27026A1DEB4A9400F4B766 /* CAUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAUtils.h; sourceTree = "<group>"; };
+		0D27026B1DEB4A9400F4B766 /* CAUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAUtils.m; sourceTree = "<group>"; };
 		0DFA0E5D1DE6664E00B616F4 /* CAPhotoCacheDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CAPhotoCacheDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DFA0E631DE6664E00B616F4 /* CAAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CAAppDelegate.h; sourceTree = "<group>"; };
 		0DFA0E641DE6664E00B616F4 /* CAAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CAAppDelegate.m; sourceTree = "<group>"; };
@@ -126,6 +129,8 @@
 				0DFA0E641DE6664E00B616F4 /* CAAppDelegate.m */,
 				0DFA0E8E1DE66AD600B616F4 /* CAPhotoManager.h */,
 				0DFA0E8F1DE66AD600B616F4 /* CAPhotoManager.m */,
+				0D27026A1DEB4A9400F4B766 /* CAUtils.h */,
+				0D27026B1DEB4A9400F4B766 /* CAUtils.m */,
 				0DFA0E741DE6664E00B616F4 /* Info.plist */,
 				0DFA0E6C1DE6664E00B616F4 /* Main.storyboard */,
 				0DFA0E601DE6664E00B616F4 /* SupportingFiles */,
@@ -381,6 +386,7 @@
 				0D27025E1DE7C7D400F4B766 /* CACollectionViewController.m in Sources */,
 				0D2702651DE7C85C00F4B766 /* main.m in Sources */,
 				0D27025F1DE7C7D400F4B766 /* CATableViewController.m in Sources */,
+				0D27026C1DEB4A9400F4B766 /* CAUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

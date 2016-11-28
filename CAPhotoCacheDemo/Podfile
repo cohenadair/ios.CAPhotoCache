@@ -6,6 +6,7 @@ target 'CAPhotoCacheDemo' do
   # Pods for CAPhotoCacheDemo
   pod 'CAPhotoCache', :path => '../'
   pod 'SSZipArchive'
+  pod 'AFNetworking'
 
   target 'CAPhotoCacheDemoTests' do
     inherit! :search_paths

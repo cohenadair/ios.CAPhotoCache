@@ -1,8 +1,8 @@
 //
-//  CATableViewController.h
+//  CAUtils.m
 //  CAPhotoCacheDemo
 //
-//  Created by Cohen Adair on 2016-11-23.
+//  Created by Cohen Adair on 2016-11-27.
 //
 //  CAPhotoCache is a robust photo caching system for iOS.
 //  Copyright © 2016 Cohen Adair. All rights reserved.
@@ -12,5 +12,14 @@
 //  source code.
 //
 
-@interface CATableViewController : UITableViewController
+#import "CAUtils.h"
+
+@implementation CAUtils
+
++ (void)runBlockInMainThread:(void(^)())block {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        block();
+    });
+}
+
 @end
