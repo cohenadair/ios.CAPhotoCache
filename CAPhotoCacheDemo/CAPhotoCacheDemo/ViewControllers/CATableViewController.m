@@ -15,6 +15,7 @@
 #import "CATableViewController.h"
 #import "CAPhotoManager.h"
 #import "CAUtils.h"
+#import "CATableViewCell.h"
 
 static NSString *const DOWNLOAD_PROGRESS_MESSAGE = @"Downloading photos (%ld%%)";
 static NSString *const UNZIP_PROGRESS_MESSAGE = @"Unzipping photos (%ld%%)";
@@ -59,11 +60,24 @@ static NSString *const UNZIP_PROGRESS_MESSAGE = @"Unzipping photos (%ld%%)";
 #pragma mark - UITableView Data Source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
+    return _photoManager.photoPaths.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    CATableViewCell *cell = (CATableViewCell *)
+        [tableView dequeueReusableCellWithIdentifier:CATableViewCell.IDENTIFIER];
+    
+    NSString *imagePath = _photoManager.photoPaths[indexPath.row];
+    cell.thumbnailView.image = [UIImage imageWithContentsOfFile:imagePath];
+    cell.titleLabel.text = imagePath.lastPathComponent;
+    
+    return cell;
 }
 
 #pragma mark - CAPhotoManagerChangeListener
@@ -85,7 +99,7 @@ static NSString *const UNZIP_PROGRESS_MESSAGE = @"Unzipping photos (%ld%%)";
     }];
 }
 
-- (void)photoManagerDownloadDidComplete:(NSString *)msg {
+- (void)photoManagerDownloadDidComplete:(NSString * _Nonnull)msg {
     __weak typeof(self) weakSelf = self;
     [CAUtils runBlockInMainThread: ^{
         weakSelf.getSetupProgressAlert.message = msg;
@@ -106,7 +120,7 @@ static NSString *const UNZIP_PROGRESS_MESSAGE = @"Unzipping photos (%ld%%)";
     }];
 }
 
-- (void)photoManagerUnzippingDidComplete:(NSString *)msg {
+- (void)photoManagerUnzippingDidComplete:(NSString * _Nonnull)msg {
     __weak typeof(self) weakSelf = self;
     [CAUtils runBlockInMainThread: ^{
         weakSelf.getSetupProgressAlert.message = msg;

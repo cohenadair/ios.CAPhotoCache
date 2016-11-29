@@ -33,7 +33,7 @@
  * the main thread.
  * @param msg The string result of the download that should be displayed to the user.
  */
-- (void)photoManagerDownloadDidComplete:(NSString *)msg;
+- (void)photoManagerDownloadDidComplete:(NSString * _Nonnull)msg;
 
 /**
  * Called when the photo unzipping starts.  There is no guarentee this method will be called on
@@ -53,22 +53,23 @@
  * the main thread.
  * @param msg The string result of the download that should be displayed to the user.
  */
-- (void)photoManagerUnzippingDidComplete:(NSString *)msg;
+- (void)photoManagerUnzippingDidComplete:(NSString * _Nonnull)msg;
 
 @end
 
 @interface CAPhotoManager : NSObject
 
+@property (strong, nonnull) NSArray *photoPaths;
 @property (nonatomic) BOOL cacheEnabled;
 
-+ (CAPhotoManager *)sharedPhotoManager;
++ (CAPhotoManager * _Nonnull)sharedPhotoManager;
 
 /**
  * Will download example photos if there are no photos in the app's /Pictures/ directory.
  */
 - (void)possiblyDownloadPhotos;
 
-- (void)addChangeListener:(id<CAPhotoManagerChangeListener>)changeListener;
-- (void)removeChangeListener:(id<CAPhotoManagerChangeListener>)changeListener;
+- (void)addChangeListener:(id<CAPhotoManagerChangeListener> _Nonnull)changeListener;
+- (void)removeChangeListener:(id<CAPhotoManagerChangeListener> _Nonnull)changeListener;
 
 @end

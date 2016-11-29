@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -33,18 +34,44 @@
         <scene sceneID="KiV-Xf-1e6">
             <objects>
                 <tableViewController id="nV9-2A-pS6" customClass="CATableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="2oP-FQ-kf9">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="76" sectionHeaderHeight="28" sectionFooterHeight="28" id="2oP-FQ-kf9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="P54-ml-5HC">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CATableViewCell" rowHeight="76" id="P54-ml-5HC" customClass="CATableViewCell">
+                                <rect key="frame" x="0.0" y="28" width="375" height="76"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="P54-ml-5HC" id="Al1-Fi-x4V">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ix9-Av-zJY">
+                                            <rect key="frame" x="76" y="28" width="279" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KEO-fd-lVx">
+                                            <rect key="frame" x="8" y="8" width="60" height="60"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="60" id="Z8v-6J-Nt9"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="KEO-fd-lVx" firstAttribute="top" secondItem="Al1-Fi-x4V" secondAttribute="topMargin" id="2jJ-lL-Uoz"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="ix9-Av-zJY" secondAttribute="trailing" constant="12" id="OBa-f2-QsM"/>
+                                        <constraint firstItem="ix9-Av-zJY" firstAttribute="leading" secondItem="KEO-fd-lVx" secondAttribute="trailing" constant="8" symbolic="YES" id="Qwi-7R-rQP"/>
+                                        <constraint firstItem="KEO-fd-lVx" firstAttribute="leading" secondItem="Al1-Fi-x4V" secondAttribute="leadingMargin" id="YYT-Kd-Wpl"/>
+                                        <constraint firstItem="KEO-fd-lVx" firstAttribute="centerY" secondItem="Al1-Fi-x4V" secondAttribute="centerY" id="ZpW-A9-09R"/>
+                                        <constraint firstItem="KEO-fd-lVx" firstAttribute="centerY" secondItem="ix9-Av-zJY" secondAttribute="centerY" id="d32-vW-Qt2"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="thumbnailView" destination="KEO-fd-lVx" id="V1D-7a-063"/>
+                                    <outlet property="titleLabel" destination="ix9-Av-zJY" id="LCy-W0-W56"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

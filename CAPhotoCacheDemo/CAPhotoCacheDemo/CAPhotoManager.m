@@ -16,6 +16,8 @@
 #import "AFNetworking/AFNetworking.h"
 #import "SSZipArchive/SSZipArchive.h"
 
+static NSInteger const MINIMUM_FILES = 100;
+
 static NSString *const EXAMPLE_PHOTOS_URL =
     @"https://github.com/cohenadair/ios.CAPhotoCache/blob/master/CAPhotoCache_Photos.zip?raw=true";
 
@@ -24,9 +26,12 @@ static NSString *const DOWNLOAD_FAILURE = @"Unable to download example photos.";
 static NSString *const UNZIP_SUCCESS = @"Successfully unzipped example photos.";
 static NSString *const UNZIP_FAILURE = @"Unable to unzip example photos.";
 
+static NSString *const PHOTO_EXTENSION = @".jpg";
+
 @implementation CAPhotoManager {
     NSMutableArray<id<CAPhotoManagerChangeListener>> *_listeners;
     
+    NSFileManager *_fileManager;
     NSURL *_documentsDirectory;
     NSURL *_picturesDirectory;
 }
@@ -48,32 +53,28 @@ static NSString *const UNZIP_FAILURE = @"Unable to unzip example photos.";
 - (id)init {
     if (self = [super init]) {
         _listeners = [NSMutableArray new];
-        
-        NSFileManager *fileManager = [NSFileManager defaultManager];
+        _fileManager = [NSFileManager defaultManager];
         
         _documentsDirectory =
-            [fileManager URLForDirectory:NSDocumentDirectory
-                                inDomain:NSUserDomainMask
-                       appropriateForURL:nil
-                                  create:NO
-                                   error:nil];
+            [_fileManager URLForDirectory:NSDocumentDirectory
+                                 inDomain:NSUserDomainMask
+                        appropriateForURL:nil
+                                   create:NO
+                                    error:nil];
         _picturesDirectory =
-            [fileManager URLForDirectory:NSPicturesDirectory
-                                inDomain:NSUserDomainMask
-                       appropriateForURL:nil
-                                  create:NO
-                                   error:nil];
+            [_fileManager URLForDirectory:NSPicturesDirectory
+                                 inDomain:NSUserDomainMask
+                        appropriateForURL:nil
+                                   create:NO
+                                    error:nil];
         
         // Create pictures directory if it doesn't already exist.
-        BOOL isDirectory;
-        if (![fileManager fileExistsAtPath:_picturesDirectory.path
-                               isDirectory:&isDirectory])
-        {
+        if (![self pathIsDirectory:_picturesDirectory.path]) {
             NSError *error;
-            if (![fileManager createDirectoryAtPath:_picturesDirectory.path
-                        withIntermediateDirectories:YES
-                                         attributes:nil
-                                              error:&error])
+            if (![_fileManager createDirectoryAtPath:_picturesDirectory.path
+                         withIntermediateDirectories:YES
+                                          attributes:nil
+                                               error:&error])
             {
                 NSLog(@"Error creating pictures directory: %@", error.localizedDescription);
             }
@@ -83,17 +84,70 @@ static NSString *const UNZIP_FAILURE = @"Unable to unzip example photos.";
     return self;
 }
 
+/**
+ * Scans the contents of the app's /Pictures/ directory and stores the full path for every 
+ * PHOTO_EXTENSION suffix'd file.
+ *
+ * Skips directories and non-PHOTO_EXTENSION files.
+ */
+- (void)initPhotoPaths {
+    NSArray<NSString *> *picturesDirectoryContents = self.picturesDirectoryContents;
+    if (picturesDirectoryContents.count <= 0) {
+        NSLog(@"No pictures exist in the pictures directory");
+        return;
+    }
+    
+    NSMutableArray<NSString *> *photoPaths = [NSMutableArray new];
+    
+    for (NSString *fileName in picturesDirectoryContents) {
+        NSString *fullPath = [_picturesDirectory.path stringByAppendingPathComponent:fileName];
+        
+        // Skip file if it's a directory or a non-JPG file.
+        if ([self pathIsDirectory:fullPath] || ![fileName hasSuffix:PHOTO_EXTENSION]) {
+            continue;
+        }
+        
+        [photoPaths addObject:fullPath];
+    }
+    
+    self.photoPaths = photoPaths;
+}
+
+- (NSArray<NSString *> *)picturesDirectoryContents {
+    NSError *error;
+    NSArray<NSString *> *contents = [_fileManager contentsOfDirectoryAtPath:_picturesDirectory.path
+                                                                      error:&error];
+    if (contents == nil) {
+        NSLog(@"Error reading contents of pictures directory: %@", error.localizedDescription);
+    }
+    
+    return contents;
+}
+
+/**
+ * @return YES if the file at the given path is a directory; NO if it is not or if no file exists
+ *         at the given path.
+ */
+- (BOOL)pathIsDirectory:(NSString *)path {
+    BOOL isDirectory = NO;
+    if ([_fileManager fileExistsAtPath:path isDirectory:&isDirectory]) {
+        return isDirectory;
+    }
+    return NO;
+}
+
 #pragma mark - Photo Downloading
 
 - (void)possiblyDownloadPhotos {
-    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSArray *picturesPaths = self.picturesDirectoryContents;
+    if (picturesPaths == nil) {
+        return;
+    }
     
-    // If there are more than 100 files in /Pictures/ assume most of them are photos and can be used
-    // for the demo.
-    if ([fileManager contentsOfDirectoryAtPath:_picturesDirectory.path
-                                         error:nil].count > 100)
-    {
-        NSLog(@"Photos already exist in the app's /Pictures/ directory");
+    // If there are more than MINIMUM_FILES files in /Pictures/ assume most of them are photos and
+    // can be used for the demo.
+    if (picturesPaths.count > MINIMUM_FILES) {
+        [self initPhotoPaths];
     } else {
         [self notifyDownloadDidStart];
         [self startDownloadingPhotos];
@@ -154,16 +208,17 @@ static NSString *const UNZIP_FAILURE = @"Unable to unzip example photos.";
                 NSLog(@"Error unzipping photos: %@", error.localizedDescription);
             }
             [weakSelf notifyUnzippingDidComplete:succeeded ? UNZIP_SUCCESS : UNZIP_FAILURE];
+            [weakSelf initPhotoPaths];
         }];
 }
 
 #pragma mark - Change Listener Stuff
 
-- (void)addChangeListener:(id<CAPhotoManagerChangeListener>)changeListener {
+- (void)addChangeListener:(id<CAPhotoManagerChangeListener> _Nonnull)changeListener {
     [_listeners addObject:changeListener];
 }
 
-- (void)removeChangeListener:(id<CAPhotoManagerChangeListener>)changeListener {
+- (void)removeChangeListener:(id<CAPhotoManagerChangeListener> _Nonnull)changeListener {
     [_listeners removeObject:changeListener];
 }
 
