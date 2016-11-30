@@ -1,5 +1,5 @@
 # CAPhotoCache
-A robust caching system for local photos on iOS.
+A simple and fast caching system for local photos on iOS.
 
 
 ## Status
