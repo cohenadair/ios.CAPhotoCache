@@ -125,6 +125,7 @@ static NSString *const UNZIP_PROGRESS_MESSAGE = @"Unzipping photos (%ld%%)";
     [CAUtils runBlockInMainThread: ^{
         weakSelf.getSetupProgressAlert.message = msg;
         [weakSelf.getSetupProgressAlert dismissViewControllerAnimated:YES completion:nil];
+        [weakSelf.tableView reloadData];
     }];
 }
 
