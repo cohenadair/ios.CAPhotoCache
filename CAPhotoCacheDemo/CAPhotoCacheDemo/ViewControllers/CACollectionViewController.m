@@ -59,17 +59,14 @@ static NSInteger const CELLS_PER_ROW_LARGE = 8;
                   layout:(UICollectionViewLayout *)collectionViewLayout
   sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     CGSize size =
         [CACollectionViewCell sizeWithSpacing:CELL_SPACING cellsPerRow:CELLS_PER_ROW_SMALL];
     
     // If the cells are too large, increase the number of cells.
     if (size.width > CACollectionViewCell.MAX_SIZE) {
-        NSLog(@"Size: %@", NSStringFromCGSize(size));
         return [CACollectionViewCell sizeWithSpacing:CELL_SPACING cellsPerRow:CELLS_PER_ROW_LARGE];
     }
     
-    NSLog(@"Size: %@", NSStringFromCGSize(size));
     return size;
 }
 
