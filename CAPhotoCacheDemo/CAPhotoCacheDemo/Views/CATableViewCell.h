@@ -16,8 +16,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
 /**
- * The identifier associated with a CATableViewCell. Note that the value returned by this method
- * needs to match the value entered in the "Identifier" field in the Storyboard/nib.
+ * @return The identifier associated with a CATableViewCell. Note that the value returned by this
+ * method needs to match the value entered in the "Identifier" field in the Storyboard/nib.
  */
 + (NSString *)IDENTIFIER;
 

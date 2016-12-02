@@ -13,37 +13,64 @@
 //
 
 #import "CACollectionViewController.h"
+#import "CACollectionViewCell.h"
+#import "CAPhotoManager.h"
+#import "CAUtils.h"
 
-@implementation CACollectionViewController
+static NSInteger const CELL_SPACING = 2;
+static NSInteger const CELLS_PER_ROW_SMALL = 4;
+static NSInteger const CELLS_PER_ROW_LARGE = 8;
 
-static NSString * const reuseIdentifier = @"Cell";
+@implementation CACollectionViewController {
+    CAPhotoManager *_photoManager;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self.collectionView registerClass:[UICollectionViewCell class]
-            forCellWithReuseIdentifier:reuseIdentifier];
+    _photoManager = [CAPhotoManager sharedPhotoManager];
 }
 
 #pragma mark UICollectionView Data Source
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 0;
+    return 1;
 }
 
-
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 0;
+- (NSInteger)collectionView:(UICollectionView *)collectionView
+     numberOfItemsInSection:(NSInteger)section
+{
+    return _photoManager.photoPaths.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
                   cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewCell *cell =
-        [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier
+    CACollectionViewCell *cell = (CACollectionViewCell *)
+        [collectionView dequeueReusableCellWithReuseIdentifier:CACollectionViewCell.IDENTIFIER
                                                   forIndexPath:indexPath];
     
+    cell.thumbnailView.image =
+        [UIImage imageWithContentsOfFile:_photoManager.photoPaths[indexPath.item]];
+    
     return cell;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView
+                  layout:(UICollectionViewLayout *)collectionViewLayout
+  sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    CGSize size =
+        [CACollectionViewCell sizeWithSpacing:CELL_SPACING cellsPerRow:CELLS_PER_ROW_SMALL];
+    
+    // If the cells are too large, increase the number of cells.
+    if (size.width > CACollectionViewCell.MAX_SIZE) {
+        NSLog(@"Size: %@", NSStringFromCGSize(size));
+        return [CACollectionViewCell sizeWithSpacing:CELL_SPACING cellsPerRow:CELLS_PER_ROW_LARGE];
+    }
+    
+    NSLog(@"Size: %@", NSStringFromCGSize(size));
+    return size;
 }
 
 @end

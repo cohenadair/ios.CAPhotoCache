@@ -99,24 +99,38 @@
         <scene sceneID="V8b-46-wCc">
             <objects>
                 <collectionViewController id="H4J-Ad-BDN" customClass="CACollectionViewController" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="xgt-2y-b9P">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="xgt-2y-b9P">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="sjs-Rs-6af">
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="2" minimumInteritemSpacing="2" id="sjs-Rs-6af">
                             <size key="itemSize" width="50" height="50"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="8NL-Wo-39n">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CACollectionViewCell" id="8NL-Wo-39n" customClass="CACollectionViewCell">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XcL-c7-n6W">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        </imageView>
+                                    </subviews>
                                 </view>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="XcL-c7-n6W" secondAttribute="bottom" id="9PS-oC-hu4"/>
+                                    <constraint firstItem="XcL-c7-n6W" firstAttribute="leading" secondItem="8NL-Wo-39n" secondAttribute="leading" id="ZNg-4K-ztN"/>
+                                    <constraint firstItem="XcL-c7-n6W" firstAttribute="top" secondItem="8NL-Wo-39n" secondAttribute="top" id="bVM-62-xTD"/>
+                                    <constraint firstAttribute="trailing" secondItem="XcL-c7-n6W" secondAttribute="trailing" id="rVu-zQ-kt0"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="thumbnailView" destination="XcL-c7-n6W" id="jTp-s5-QU5"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>

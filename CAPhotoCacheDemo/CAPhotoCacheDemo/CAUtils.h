@@ -16,4 +16,9 @@
 
 + (void)runBlockInMainThread:(void(^)())block;
 
+/**
+ * @return The size of the main screen, measured in points.
+ */
++ (CGSize)screenSizeInPoints;
+
 @end

@@ -79,6 +79,8 @@ static NSString *const PHOTO_EXTENSION = @".jpg";
                 NSLog(@"Error creating pictures directory: %@", error.localizedDescription);
             }
         }
+        
+        NSLog(@"%@", _picturesDirectory);
     }
     
     return self;
