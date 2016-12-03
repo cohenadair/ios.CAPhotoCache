@@ -28,6 +28,9 @@ static NSString *const UNZIP_FAILURE = @"Unable to unzip example photos.";
 
 static NSString *const PHOTO_EXTENSION = @".jpg";
 
+@interface CAPhotoManager () <NSURLConnectionDataDelegate>
+@end
+
 @implementation CAPhotoManager {
     NSMutableArray<id<CAPhotoManagerChangeListener>> *_listeners;
     
@@ -140,7 +143,7 @@ static NSString *const PHOTO_EXTENSION = @".jpg";
 
 #pragma mark - Photo Downloading
 
-- (void)possiblyDownloadPhotos {
+- (void)possiblyRequestDownloadPermission {
     NSArray *picturesPaths = self.picturesDirectoryContents;
     if (picturesPaths == nil) {
         return;
@@ -151,12 +154,14 @@ static NSString *const PHOTO_EXTENSION = @".jpg";
     if (picturesPaths.count > MINIMUM_FILES) {
         [self initPhotoPaths];
     } else {
-        [self notifyDownloadDidStart];
-        [self startDownloadingPhotos];
+        [self notifyZipSizeRequestDidStart];
+        [self requestExamplePhotoZipSize];
     }
 }
 
 - (void)startDownloadingPhotos {
+    [self notifyDownloadDidStart];
+    
     NSURLSessionConfiguration *configuration =
         [NSURLSessionConfiguration defaultSessionConfiguration];
     
@@ -174,7 +179,7 @@ static NSString *const PHOTO_EXTENSION = @".jpg";
             }
          
             destination:^NSURL *(NSURL *targetPath, NSURLResponse *response) {
-                return [weakSelf getDownloadUrlForFile:response.suggestedFilename];
+                return [weakSelf downloadUrlForFile:response.suggestedFilename];
             }
          
             completionHandler:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
@@ -191,7 +196,7 @@ static NSString *const PHOTO_EXTENSION = @".jpg";
     [downloadTask resume];
 }
 
-- (NSURL *)getDownloadUrlForFile:(NSString *)fileName {
+- (NSURL *)downloadUrlForFile:(NSString *)fileName {
     return [_documentsDirectory URLByAppendingPathComponent:fileName];
 }
 
@@ -214,6 +219,16 @@ static NSString *const PHOTO_EXTENSION = @".jpg";
         }];
 }
 
+- (void)requestExamplePhotoZipSize {
+    NSMutableURLRequest *request =
+        [NSMutableURLRequest requestWithURL:[NSURL URLWithString:EXAMPLE_PHOTOS_URL]];
+    request.HTTPMethod = @"HEAD";
+    
+    if (![[NSURLConnection alloc] initWithRequest:request delegate:self]) {
+        NSLog(@"Error requesting example photos's URL data.");
+    }
+}
+
 #pragma mark - Change Listener Stuff
 
 - (void)addChangeListener:(id<CAPhotoManagerChangeListener> _Nonnull)changeListener {
@@ -230,13 +245,25 @@ static NSString *const PHOTO_EXTENSION = @".jpg";
     }
 }
 
+- (void)notifyZipSizeRequestDidStart {
+    [self notifyListenersWithBlock:^(id<CAPhotoManagerChangeListener> listener) {
+        [listener photoManagerZipSizeRequestDidStart];
+    }];
+}
+
+- (void)notifyZipSizeRequestDidComplete:(NSString * _Nonnull)msg {
+    [self notifyListenersWithBlock:^(id<CAPhotoManagerChangeListener> listener) {
+        [listener photoManagerZipSizeRequestDidComplete:msg];
+    }];
+}
+
 - (void)notifyDownloadDidProgress:(NSInteger)percentCompleted {
     [self notifyListenersWithBlock:^(id<CAPhotoManagerChangeListener> listener) {
         [listener photoManagerDownloadDidProgress:percentCompleted];
     }];
 }
 
-- (void)notifyDownloadDidComplete:(NSString *)msg {
+- (void)notifyDownloadDidComplete:(NSString * _Nonnull)msg {
     [self notifyListenersWithBlock:^(id<CAPhotoManagerChangeListener> listener) {
         [listener photoManagerDownloadDidComplete:msg];
     }];
@@ -260,10 +287,22 @@ static NSString *const PHOTO_EXTENSION = @".jpg";
     }];
 }
 
-- (void)notifyUnzippingDidComplete:(NSString *)msg {
+- (void)notifyUnzippingDidComplete:(NSString * _Nonnull)msg {
     [self notifyListenersWithBlock:^(id<CAPhotoManagerChangeListener> listener) {
         [listener photoManagerUnzippingDidComplete:msg];
     }];
+}
+
+#pragma mark - NSURLConnectionDataDelegate Methods
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
+    long long responseLength = response.expectedContentLength;
+    if (responseLength == NSURLResponseUnknownLength) {
+        [self notifyZipSizeRequestDidComplete:@"-1"];
+    } else {
+        float size = (float)responseLength / (float)1000000;
+        [self notifyZipSizeRequestDidComplete:[NSString stringWithFormat:@"%.1f", size]];
+    }
 }
 
 @end
