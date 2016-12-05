@@ -19,7 +19,7 @@
 static NSInteger const MINIMUM_FILES = 100;
 
 static NSString *const EXAMPLE_PHOTOS_URL =
-    @"https://github.com/cohenadair/ios.CAPhotoCache/blob/master/CAPhotoCache_Photos.zip?raw=true";
+    @"https://dl.dropboxusercontent.com/s/ck0uxg93012pgbw/CAPhotoCache_Photos.zip";
 
 static NSString *const DOWNLOAD_SUCCESS = @"Successfully downloaded example photos.";
 static NSString *const DOWNLOAD_FAILURE = @"Unable to download example photos.";
@@ -141,6 +141,10 @@ static NSString *const PHOTO_EXTENSION = @".jpg";
     return NO;
 }
 
+- (NSFileManager *)fileManager {
+    return _fileManager;
+}
+
 #pragma mark - Photo Downloading
 
 - (void)possiblyRequestDownloadPermission {
@@ -200,10 +204,10 @@ static NSString *const PHOTO_EXTENSION = @".jpg";
     return [_documentsDirectory URLByAppendingPathComponent:fileName];
 }
 
-- (void)startExtractingPhotosFromPath:(NSURL *)filePath {
+- (void)startExtractingPhotosFromPath:(NSURL *)fileUrl {
     __weak typeof(self) weakSelf = self;
     
-    [SSZipArchive unzipFileAtPath:filePath.path
+    [SSZipArchive unzipFileAtPath:fileUrl.path
                     toDestination:_picturesDirectory.path
      
         progressHandler:^(NSString *entry, unz_file_info zipInfo, long entryNumber, long total) {
@@ -216,6 +220,12 @@ static NSString *const PHOTO_EXTENSION = @".jpg";
             }
             [weakSelf notifyUnzippingDidComplete:succeeded ? UNZIP_SUCCESS : UNZIP_FAILURE];
             [weakSelf initPhotoPaths];
+            
+            // Delete ZIP file after unzipping.
+            NSError *err;
+            if (![weakSelf.fileManager removeItemAtPath:fileUrl.path error:&err]) {
+                NSLog(@"Error deleting ZIP file at path: %@", fileUrl.path);
+            }
         }];
 }
 
