@@ -5,6 +5,8 @@ A simple and fast caching system for local photos on iOS.
 ## Status
 In progress.
 
+The demo application is finished enough that it shows the problem CAPhotoCache will solve. Run the demo app and scroll thorugh the table or collection view.
+
 
 ## Running the demo
 * Make sure [Cocoapods](https://guides.cocoapods.org/using/getting-started.html) is installed on your machine
