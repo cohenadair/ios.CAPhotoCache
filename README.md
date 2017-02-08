@@ -1,9 +1,9 @@
 # CAPhotoCache
-A simple and fast caching system for local photos on iOS.
+A simple and fast caching system for local photos on iOS, written in Objective-C.
 
 
 ## Status
-In progress.
+Development on hold due to other priorities.
 
 The demo application is finished enough that it shows the problem CAPhotoCache will solve. Run the demo app and scroll thorugh the table or collection view, and notice the tremendous amount of lag.
 
